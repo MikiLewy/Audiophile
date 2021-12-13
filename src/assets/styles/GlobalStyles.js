@@ -8,5 +8,11 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing:border-box;
     
 }
+body{
+    font-family: 'Heebo', sans-serif;
+}
+button{
+    font-family: 'Heebo', sans-serif;
+}
 
 `;

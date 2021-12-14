@@ -1,12 +1,23 @@
 import styled from 'styled-components';
 
+const handleColorType = (color, theme) => {
+  switch (color) {
+    case 'black':
+      return theme.colors.black;
+    case 'transparent':
+      return 'transparent';
+    default:
+      return theme.colors.darkOrange;
+  }
+};
+
 export const Button = styled.button`
   padding: 0.75rem 1.5rem;
-  color: ${({ theme }) => theme.colors.lightWhite};
+  color: ${({ theme, color }) => (color === 'transparent' ? theme.colors.black : theme.colors.lightWhite)};
   font-size: ${({ theme }) => theme.fontSize.xxs};
-  background-color: ${({ theme }) => theme.colors.darkOrange};
+  background-color: ${({ theme, color }) => handleColorType(color, theme)};
   text-transform: uppercase;
-  border: none;
+  border: ${({ color }) => (color === 'transparent' ? '2px solid black' : 'none')};
   font-weight: bold;
   letter-spacing: 1px;
 `;

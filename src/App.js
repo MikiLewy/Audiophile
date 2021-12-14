@@ -3,7 +3,7 @@ import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
-import Nav from 'components/organisms/Nav/Nav';
+import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import Home from 'pages/Home/Home';
 
 const App = () => {
@@ -11,10 +11,9 @@ const App = () => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <div className="App">
-          <Nav />
+        <MainTemplate>
           <Home />
-        </div>
+        </MainTemplate>
       </ThemeProvider>
     </BrowserRouter>
   );

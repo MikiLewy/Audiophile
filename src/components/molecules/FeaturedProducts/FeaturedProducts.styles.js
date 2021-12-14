@@ -1,3 +1,4 @@
+import { Card } from 'components/atoms/Card/Card';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -8,18 +9,7 @@ export const Wrapper = styled.div`
   gap: 80px 0;
 `;
 
-export const FeaturedItem = styled.div`
-  position: relative;
-  display: flex;
-  height: 150px;
-  width: 80%;
-  flex-direction: column;
-  justify-content: flex-end;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  text-decoration: none;
-  gap: 10px;
-  text-align: center;
-  border-radius: 10px;
+export const FeaturedItem = styled(Card)`
   img:last-child {
     width: 10px;
   }

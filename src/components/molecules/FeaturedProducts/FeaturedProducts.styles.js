@@ -15,11 +15,22 @@ export const Wrapper = styled.div`
     justify-content: space-around;
     margin: 100px auto;
   }
+  @media ${queries.laptop} {
+    gap: 20px;
+    width: 100%;
+    padding: 0 7rem;
+  }
+  @media ${queries.desktop} {
+    padding: 0 10rem;
+  }
 `;
 
 export const FeaturedItem = styled(Card)`
   @media ${queries.tablet} {
     width: 33%;
+  }
+  @media ${queries.laptop} {
+    height: 175px;
   }
   img:last-child {
     width: 10px;
@@ -28,6 +39,7 @@ export const FeaturedItem = styled(Card)`
     text-transform: uppercase;
     letter-spacing: 1px;
     color: ${({ theme }) => theme.colors.black};
+    font-size: ${({ theme }) => theme.fontSize.s};
   }
   div:last-child {
     display: flex;
@@ -52,14 +64,23 @@ export const ImageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 1;
+  @media ${queries.laptop} {
+    top: -35%;
+  }
   img {
     width: 70%;
     object-fit: cover;
+    @media ${queries.laptop} {
+      width: 90%;
+    }
   }
   img:last-child {
     position: absolute;
     top: 80%;
     width: 100%;
     z-index: 2;
+    @media ${queries.laptop} {
+      top: 70%;
+    }
   }
 `;

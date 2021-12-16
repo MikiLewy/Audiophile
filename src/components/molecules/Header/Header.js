@@ -9,7 +9,7 @@ const Header = () => {
       <ContentWrapper>
         <p>New product</p>
         <h1>xx99 MARK II HEADPHONE</h1>
-        <Description>Experience natural, lifelike audio and exceptional build quality made for the assionate music enthusiast.</Description>
+        <Description>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</Description>
         <Button>See product</Button>
       </ContentWrapper>
     </Wrapper>

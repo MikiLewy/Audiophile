@@ -3,6 +3,15 @@ import { Button } from 'components/atoms/Button/Button';
 import { Card } from 'components/atoms/Card/Card';
 import { queries } from 'helpers/mediaQueries';
 
+export const Container = styled.div`
+  @media ${queries.laptop} {
+    width: 100%;
+    padding: 0 7rem;
+  }
+  @media ${queries.desktop} {
+    padding: 0 10rem;
+  }
+`;
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -18,6 +27,64 @@ export const Wrapper = styled.div`
   @media ${queries.tablet} {
     gap: 20px;
   }
+  @media ${queries.laptop} {
+    width: 100%;
+    height: 500px;
+    flex-direction: row;
+    gap: 0 30px;
+    padding: 0;
+    overflow: hidden;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  margin: 50px auto 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  @media ${queries.laptop} {
+    bottom: -15%;
+    max-width: 50%;
+  }
+
+  img {
+    position: relative;
+    z-index: 3;
+    width: 50%;
+    @media ${queries.tablet} {
+      font-size: ${({ theme }) => theme.fontSize.xxl};
+      width: 60%;
+    }
+    @media ${queries.laptop} {
+      width: 60%;
+    }
+  }
+  img:last-child {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+`;
+export const StyledButton = styled(Button)`
+  margin-bottom: 25px;
+`;
+export const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 20px;
+  @media ${queries.tablet} {
+    gap: 25px;
+  }
+  @media ${queries.laptop} {
+    align-items: flex-start;
+  }
   h4 {
     color: ${({ theme }) => theme.colors.white};
     font-size: ${({ theme }) => theme.fontSize.xl};
@@ -26,47 +93,31 @@ export const Wrapper = styled.div`
     width: 50%;
     text-align: center;
     line-height: 110%;
+
     @media ${queries.tablet} {
       font-size: ${({ theme }) => theme.fontSize.xxl};
       width: 40%;
+    }
+    @media ${queries.laptop} {
+      text-align: left;
     }
   }
   p {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     width: 90%;
+    @media ${queries.biggerPhone} {
+      width: 80%;
+    }
     @media ${queries.tablet} {
       font-size: ${({ theme }) => theme.fontSize.m};
       width: 60%;
     }
+    @media ${queries.laptop} {
+      text-align: left;
+    }
   }
 `;
-
-export const ImageWrapper = styled.div`
-  margin: 50px auto 20px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-
-  img {
-    position: relative;
-    z-index: 2;
-    width: 50%;
-  }
-  img:last-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 80%;
-    transform: translate(-50%, -50%);
-    color: white;
-    z-index: 1;
-  }
-`;
-export const StyledButton = styled(Button)`
-  margin-bottom: 25px;
-`;
-
 export const SpeakerWrapper = styled.div`
   height: 300px;
   padding: 1rem;
@@ -75,9 +126,15 @@ export const SpeakerWrapper = styled.div`
   border-radius: 10px;
   background-color: #e7e7e7;
   position: relative;
+  @media ${queries.biggerPhone} {
+    padding: 1rem 2rem;
+  }
   @media ${queries.tablet} {
     font-size: ${({ theme }) => theme.fontSize.l};
-    padding: 1rem 2rem;
+  }
+  @media ${queries.laptop} {
+    width: 100%;
+    padding: 2rem 4rem;
   }
   img {
     border-radius: 10px;
@@ -106,8 +163,8 @@ export const ContentWrapper = styled.div`
     font-size: ${({ theme }) => theme.fontSize.l};
     text-transform: uppercase;
     letter-spacing: 2px;
-    @media ${queries.tablet} {
-      font-size: ${({ theme }) => theme.fontSize.xl};
+    @media ${queries.laptop} {
+      font-size: ${({ theme }) => theme.fontSize.l};
     }
   }
 `;
@@ -119,6 +176,9 @@ export const CardsWrapper = styled.div`
     gap: 20px;
     align-items: center;
     height: 300px;
+  }
+  @media ${queries.laptop} {
+    width: 100%;
   }
 `;
 export const StyledCard = styled(Card)`
@@ -152,8 +212,13 @@ export const StyledInfo = styled(Card)`
     text-transform: uppercase;
     letter-spacing: 2px;
   }
-  @media ${queries.tablet} {
+  @media ${queries.biggerPhone} {
     padding: 1rem 2rem;
+  }
+  @media ${queries.tablet} {
     height: 100%;
+  }
+  @media ${queries.laptop} {
+    padding: 1rem 4rem;
   }
 `;

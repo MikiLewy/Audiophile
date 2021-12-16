@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 body{
     font-family: 'Heebo', sans-serif;
+    overflow-x: hidden;
 }
 button{
     font-family: 'Heebo', sans-serif;

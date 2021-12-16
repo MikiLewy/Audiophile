@@ -15,6 +15,12 @@ export const Wrapper = styled.nav`
     justify-content: flex-start;
     gap: 50px;
   }
+  @media ${queries.laptop} {
+    padding: 2rem 7rem;
+  }
+  @media ${queries.desktop} {
+    padding: 2rem 10rem;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -34,6 +40,12 @@ export const Wrapper = styled.nav`
       margin-left: auto;
     }
   }
+  @media ${queries.laptop} {
+    img:nth-of-type(2) {
+      order: 2;
+      cursor: pointer;
+    }
+  }
 `;
 export const Menu = styled.div`
   position: fixed;
@@ -50,12 +62,24 @@ export const Menu = styled.div`
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-200%')});
   transition: 0.8s ease-in-out;
   z-index: 50;
+  @media ${queries.laptop} {
+    position: inherit;
+    transform: translateX(0);
+    flex-direction: row;
+    order: 1;
+  }
+  @media ${queries.laptop} {
+    margin-left: -10rem;
+  }
 `;
 export const StyledLink = styled(NavLink).attrs(({ isActive }) => (isActive ? 'active' : ''))`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.grey};
   @media ${queries.tablet} {
     font-size: ${({ theme }) => theme.fontSize.l};
+  }
+  @media ${queries.laptop} {
+    font-size: ${({ theme }) => theme.fontSize.m};
   }
   &.active {
     color: ${({ theme }) => theme.colors.white};

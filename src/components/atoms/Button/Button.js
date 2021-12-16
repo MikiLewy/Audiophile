@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { queries } from 'helpers/mediaQueries';
 
 const handleColorType = (color, theme) => {
   switch (color) {
@@ -20,4 +21,8 @@ export const Button = styled.button`
   border: ${({ color }) => (color === 'transparent' ? '2px solid black' : 'none')};
   font-weight: bold;
   letter-spacing: 1px;
+  @media ${queries.tablet} {
+    padding: 1rem 2rem;
+    font-size: ${({ theme }) => theme.fontSize.s};
+  }
 `;

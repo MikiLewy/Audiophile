@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Button } from 'components/atoms/Button/Button';
 import { Card } from 'components/atoms/Card/Card';
+import { queries } from 'helpers/mediaQueries';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -12,7 +13,11 @@ export const Wrapper = styled.div`
   width: 90%;
   margin: 70px auto;
   border-radius: 10px;
+  padding: 1rem;
   background-color: ${({ theme }) => theme.colors.darkOrange};
+  @media ${queries.tablet} {
+    gap: 20px;
+  }
   h4 {
     color: ${({ theme }) => theme.colors.white};
     font-size: ${({ theme }) => theme.fontSize.xl};
@@ -21,11 +26,19 @@ export const Wrapper = styled.div`
     width: 50%;
     text-align: center;
     line-height: 110%;
+    @media ${queries.tablet} {
+      font-size: ${({ theme }) => theme.fontSize.xxl};
+      width: 40%;
+    }
   }
   p {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     width: 90%;
+    @media ${queries.tablet} {
+      font-size: ${({ theme }) => theme.fontSize.m};
+      width: 60%;
+    }
   }
 `;
 
@@ -62,6 +75,10 @@ export const SpeakerWrapper = styled.div`
   border-radius: 10px;
   background-color: #e7e7e7;
   position: relative;
+  @media ${queries.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.l};
+    padding: 1rem 2rem;
+  }
   img {
     border-radius: 10px;
     width: 100%;
@@ -80,12 +97,28 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px 0;
+  gap: 20px;
   height: 100%;
+  @media ${queries.tablet} {
+    gap: 30px;
+  }
   h4 {
     font-size: ${({ theme }) => theme.fontSize.l};
     text-transform: uppercase;
     letter-spacing: 2px;
+    @media ${queries.tablet} {
+      font-size: ${({ theme }) => theme.fontSize.xl};
+    }
+  }
+`;
+export const CardsWrapper = styled.div`
+  @media ${queries.tablet} {
+    margin: 50px auto;
+    width: 90%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 300px;
   }
 `;
 export const StyledCard = styled(Card)`
@@ -93,11 +126,17 @@ export const StyledCard = styled(Card)`
   margin: 20px auto;
   border-radius: 10px;
   overflow: hidden;
+
   img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media ${queries.tablet} {
+    height: 100%;
   }
 `;
 export const StyledInfo = styled(Card)`
@@ -112,5 +151,9 @@ export const StyledInfo = styled(Card)`
     font-size: ${({ theme }) => theme.fontSize.l};
     text-transform: uppercase;
     letter-spacing: 2px;
+  }
+  @media ${queries.tablet} {
+    padding: 1rem 2rem;
+    height: 100%;
   }
 `;

@@ -2,10 +2,9 @@ import React from 'react';
 import speakerZX9 from 'assets/images/home/mobile/image-speaker-zx9.png';
 import circles from 'assets/images/home/desktop/pattern-circles.svg';
 import { Button } from 'components/atoms/Button/Button';
-import { ImageWrapper, Wrapper, StyledButton, SpeakerWrapper, ContentWrapper, StyledCard, StyledInfo } from './Cards.styles';
+import { ImageWrapper, Wrapper, StyledButton, SpeakerWrapper, ContentWrapper, StyledCard, StyledInfo, CardsWrapper } from './Cards.styles';
 import speaker from 'assets/images/home/mobile/image-speaker-zx7.jpg';
 import earphones from 'assets/images/home/mobile/image-earphones-yx1.jpg';
-import { Card } from 'components/atoms/Card/Card';
 
 const Cards = () => {
   return (
@@ -26,13 +25,15 @@ const Cards = () => {
           <Button color="transparent">See product</Button>
         </ContentWrapper>
       </SpeakerWrapper>
-      <StyledCard>
-        <img src={earphones} alt="earphones" />
-      </StyledCard>
-      <StyledInfo>
-        <h4>YX1 earphones</h4>
-        <Button color="transparent">See product</Button>
-      </StyledInfo>
+      <CardsWrapper>
+        <StyledCard>
+          <img src={earphones} alt="earphones" />
+        </StyledCard>
+        <StyledInfo>
+          <h4>YX1 earphones</h4>
+          <Button color="transparent">See product</Button>
+        </StyledInfo>
+      </CardsWrapper>
     </>
   );
 };

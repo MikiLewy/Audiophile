@@ -13,7 +13,7 @@ export const theme = {
     darkBlack: `#101010`,
   },
   fontSize: {
-    xxl: '48px',
+    xxl: '72px',
     xl: '36px',
     l: '28px',
     m: '18px',

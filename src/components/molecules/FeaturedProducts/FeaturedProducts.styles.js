@@ -1,5 +1,6 @@
 import { Card } from 'components/atoms/Card/Card';
 import styled from 'styled-components';
+import { queries } from 'helpers/mediaQueries';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -7,9 +8,19 @@ export const Wrapper = styled.div`
   align-items: center;
   margin-top: 100px;
   gap: 80px 0;
+  @media ${queries.tablet} {
+    width: 90%;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-around;
+    margin: 100px auto;
+  }
 `;
 
 export const FeaturedItem = styled(Card)`
+  @media ${queries.tablet} {
+    width: 33%;
+  }
   img:last-child {
     width: 10px;
   }

@@ -21,6 +21,7 @@ export const Button = styled.button`
   border: ${({ color }) => (color === 'transparent' ? '2px solid black' : 'none')};
   font-weight: bold;
   letter-spacing: 1px;
+  text-decoration: none;
   cursor: pointer;
   @media ${queries.tablet} {
     padding: 1rem 2rem;

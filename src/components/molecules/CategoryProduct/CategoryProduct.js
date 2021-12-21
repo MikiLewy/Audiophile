@@ -25,7 +25,7 @@ const CategoryProduct = ({
         {feature ? <h3>{feature}</h3> : null}
         <h2>{name}</h2>
         <p>{detail}</p>
-        <StyledButton as={Link} to={`/${link}`}>
+        <StyledButton as={Link} to={`${link}`}>
           See product
         </StyledButton>
       </ContentWrapper>

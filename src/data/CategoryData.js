@@ -30,7 +30,7 @@ export const categoryData = [
       desktopImg: desktopXX99mII,
     },
     price: '$2,999',
-    link: 'xx99markii',
+    link: 'xx99-mark-ii',
   },
   {
     category: 'headphones',
@@ -44,7 +44,7 @@ export const categoryData = [
       desktopImg: desktopXX99mI,
     },
     price: '$1,750',
-    link: 'xx99marki',
+    link: 'xx99-mark-i',
   },
   {
     category: 'headphones',

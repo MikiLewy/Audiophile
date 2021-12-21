@@ -6,6 +6,7 @@ import { theme } from 'assets/styles/theme';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import Home from 'pages/Home/Home';
 import Category from 'pages/Category/Category';
+import ProductDetail from 'pages/ProductDetail/ProductDetail';
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
         <MainTemplate>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/:id" element={<Category />} />
+            <Route path="/:category" element={<Category />} />
+            <Route path="/:category/:id" element={<ProductDetail />} />
           </Routes>
         </MainTemplate>
       </ThemeProvider>

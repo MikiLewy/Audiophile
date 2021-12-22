@@ -47,7 +47,7 @@ export const ContentWrapper = styled.div`
   h3 {
     letter-spacing: 6px;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.darkGrey};
+    color: ${({ theme }) => theme.colors.darkOrange};
     font-size: ${({ theme }) => theme.fontSize.xs};
     @media ${queries.desktop} {
       font-size: ${({ theme }) => theme.fontSize.m};

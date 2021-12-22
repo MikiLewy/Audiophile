@@ -5,27 +5,30 @@ import { useWindowSize } from 'hooks/useWindowSize';
 import { changePhoto } from 'helpers/changePhoto';
 import { ImageWrapper, Wrapper, StyledButton, ContentWrapper } from './CategoryProduct.styles';
 
-const CategoryProduct = ({
-  product: {
-    feature,
-    name,
-    detail,
-    link,
-    image: { mobileImg, tabletImg, desktopImg },
-    alt,
-  },
-}) => {
+const CategoryProduct = ({ product: { feature, name, info, id, productImg } }) => {
   const width = useWindowSize();
   return (
     <Wrapper>
       <ImageWrapper>
-        <img src={changePhoto(mobileImg, tabletImg, desktopImg, width)} alt={alt} />
+        {productImg.map((photo) => {
+          if (
+            changePhoto(
+              photo.title === 'mobile' ? photo.url : null,
+              photo.title === 'tablet' ? photo.url : null,
+              photo.title === 'desktop' ? photo.url : null,
+              width
+            )
+          ) {
+            return <img key={photo.id} src={photo.url} alt="" />;
+          }
+          return null;
+        })}
       </ImageWrapper>
       <ContentWrapper>
         {feature ? <h3>{feature}</h3> : null}
         <h2>{name}</h2>
-        <p>{detail}</p>
-        <StyledButton as={Link} to={`${link}`}>
+        <p>{info}</p>
+        <StyledButton as={Link} to={`${id}`}>
           See product
         </StyledButton>
       </ContentWrapper>

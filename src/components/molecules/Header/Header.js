@@ -11,7 +11,7 @@ const Header = () => {
         <p>New product</p>
         <h1>xx99 MARK II HEADPHONE</h1>
         <Description>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</Description>
-        <Button as={Link} to={`/headphones/xx99-mark-ii`}>
+        <Button as={Link} to={`/headphones/88905905`}>
           See product
         </Button>
       </ContentWrapper>

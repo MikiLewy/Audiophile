@@ -3,7 +3,6 @@ import { useLocation } from 'react-router';
 import { useWindowSize } from 'hooks/useWindowSize';
 import { changePhoto } from 'helpers/changePhoto';
 import { useNavigate } from 'react-router';
-import axios from 'axios';
 import { Button } from 'components/atoms/Button/Button';
 import {
   ContentWrapper,
@@ -22,70 +21,25 @@ import {
   FeatureWrapper,
   Price,
 } from './ProductDetail.styles';
-export const query = `{
-  allProducts {
-    id
-    name
-    category
-    feature
-    price
-    info
-    description1
-    description2
-    amount
-    content
-    amount2
-    content2
-    amount3
-    content3
-    amount4
-    content4
-    amount5
-    content5
-    amount6
-    content6
-    gallery{
-      id
-      title
-      url
-    }
-    productImg{
-      id
-      title
-      url
-    }
-  }
-}`;
+import { useProducts } from 'hooks/useProducts';
+import Loader from 'components/atoms/Loader/Loader';
+
 const ProductDetail = () => {
   const navigate = useNavigate();
-  const [product, setProducts] = useState([]);
+  const products = useProducts();
   const [currentProduct, setCurrentProduct] = useState([]);
   const { pathname } = useLocation();
   const width = useWindowSize();
-
   useEffect(() => {
-    axios
-      .post(
-        'https://graphql.datocms.com/',
-        {
-          query: query,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${process.env.REACT_APP_DATO_TOKEN}`,
-          },
-        }
-      )
-      .then(({ data: { data } }) => setProducts(data.allProducts))
-      .catch((e) => console.log(e));
-    // const [matchingProduct] = productData.filter((product) => `/${product.category}/${product.id}` === pathname);
-    // setCurrentProduct(matchingProduct);
-  }, []);
+    const [...matchingProduct] = products.filter((product) => `/${product.category}/${product.id}` === pathname);
+    setCurrentProduct(matchingProduct);
+  }, [pathname, products]);
+
   return (
     <Wrapper>
       <Link onClick={() => navigate(-1)}>Go Back</Link>
-      {product.length > 0 ? (
-        product.map((product) => (
+      {currentProduct.length > 0 ? (
+        currentProduct.map((product) => (
           <>
             <ContentWrapper className="content">
               <ImageWrapper>
@@ -164,7 +118,7 @@ const ProductDetail = () => {
           </>
         ))
       ) : (
-        <p>Loading</p>
+        <Loader />
       )}
     </Wrapper>
   );

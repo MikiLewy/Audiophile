@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import { categoryData } from 'data/CategoryData';
 import CategoryProduct from 'components/molecules/CategoryProduct/CategoryProduct';
 import { CategoryTitle } from './Category.styles';
+import { useProducts } from 'hooks/useProducts';
+import Loader from 'components/atoms/Loader/Loader';
 
 const Category = () => {
   const [currentCategory, setCurrentCategory] = useState([]);
+  const products = useProducts();
   const { pathname } = useLocation();
   const name = pathname.split('/');
   useEffect(() => {
-    const [...matchingCategory] = categoryData.filter((product) => `/${product.category.toLowerCase()}` === pathname.toLowerCase());
+    const [...matchingCategory] = products.filter((product) => `/${product.category.toLowerCase()}` === pathname.toLowerCase());
     setCurrentCategory(matchingCategory);
-  }, [pathname]);
+  }, [pathname, products]);
   return (
     <div>
       <CategoryTitle>{name[1]}</CategoryTitle>
-      {currentCategory.map((product) => (
-        <CategoryProduct key={product.name} product={product} />
-      ))}
+      {currentCategory.length > 0 ? currentCategory.map((product) => <CategoryProduct key={product.name} product={product} />) : <Loader />}
     </div>
   );
 };

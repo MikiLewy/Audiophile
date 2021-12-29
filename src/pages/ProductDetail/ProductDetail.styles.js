@@ -1,6 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { queries } from 'helpers/mediaQueries';
+const fade = keyframes`
+0%{
+  opacity: 1;
+}
+100%{
+  opacity: 0;
+}
 
+`;
 export const Wrapper = styled.div`
   margin: 70px auto;
   width: 90%;
@@ -127,6 +135,10 @@ export const ButtonsWrapper = styled.div`
   align-items: center;
   width: 100%;
 `;
+export const SuccessMessage = styled.p`
+  color: #008000;
+  animation: ${fade} 1s 2s forwards ease-in-out;
+`;
 export const ProductCount = styled.div`
   display: flex;
   align-items: center;
@@ -244,13 +256,13 @@ export const Gallery = styled.div`
     height: 620px;
     align-items: space-between;
     img {
-      min-height: 250px;
+      min-height: 300px;
       object-fit: cover;
     }
     img:nth-of-type(3) {
       grid-column: 2/2;
       grid-row: 1/-1;
-      height: 520px;
+      height: 620px;
     }
     img:nth-of-type(1) {
       grid-column: 1/2;

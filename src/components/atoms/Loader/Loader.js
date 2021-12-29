@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Wrapper } from './Loader.styles';
 const Loader = () => {
   return (
@@ -19,7 +18,5 @@ const Loader = () => {
     </Wrapper>
   );
 };
-
-Loader.propTypes = {};
 
 export default Loader;

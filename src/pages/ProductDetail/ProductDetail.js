@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+import React, { useContext } from 'react';
 import { useWindowSize } from 'hooks/useWindowSize';
 import { changePhoto } from 'helpers/changePhoto';
 import { useNavigate } from 'react-router';
@@ -20,27 +19,30 @@ import {
   Link,
   FeatureWrapper,
   Price,
+  SuccessMessage,
 } from './ProductDetail.styles';
-import { useProducts } from 'hooks/useProducts';
 import Loader from 'components/atoms/Loader/Loader';
+import { ProductsContext } from 'providers/ProductsProvider';
 
 const ProductDetail = () => {
   const navigate = useNavigate();
-  const products = useProducts();
-  const [currentProduct, setCurrentProduct] = useState([]);
-  const { pathname } = useLocation();
+  const ctx = useContext(ProductsContext);
   const width = useWindowSize();
-  useEffect(() => {
-    const [...matchingProduct] = products.filter((product) => `/${product.category}/${product.id}` === pathname);
-    setCurrentProduct(matchingProduct);
-  }, [pathname, products]);
 
+  const handleAddItem = () => {
+    if (ctx.cartsProducts.filter((product) => product[0].id === ctx.currentProduct[0].id).length > 0) return;
+    ctx.setProductsPrice([...ctx.productsPrice, { id: ctx.currentProduct[0].id, price: ctx.currentProduct[0].price }]);
+    ctx.setProductsQuantity([...ctx.productsQuantity, { id: ctx.currentProduct[0].id, counter: ctx.counter }]);
+    ctx.setCounter(1);
+    ctx.setCartsProducts([...ctx.cartsProducts, ctx.currentProduct]);
+    ctx.setIsAdded(true);
+  };
   return (
     <Wrapper>
       <Link onClick={() => navigate(-1)}>Go Back</Link>
-      {currentProduct.length > 0 ? (
-        currentProduct.map((product) => (
-          <>
+      {ctx.currentProduct.length > 0 ? (
+        ctx.currentProduct.map((product) => (
+          <div key={product.id}>
             <ContentWrapper className="content">
               <ImageWrapper>
                 {product.productImg.map((photo) => {
@@ -64,12 +66,13 @@ const ProductDetail = () => {
                 <Price>${product.price}</Price>
                 <ButtonsWrapper>
                   <ProductCount>
-                    <p>-</p>
-                    <p>1</p>
-                    <p>+</p>
+                    <p onClick={() => ctx.handleCounterChange('-')}>-</p>
+                    <p>{ctx.counter ? ctx.counter : '1'}</p>
+                    <p onClick={() => ctx.handleCounterChange('+')}>+</p>
                   </ProductCount>
-                  <Button>Add to cart</Button>
+                  <Button onClick={handleAddItem}>Add to cart</Button>
                 </ButtonsWrapper>
+                {ctx.isAdded ? <SuccessMessage>Added item to the cart</SuccessMessage> : null}
               </InfoWrapper>
             </ContentWrapper>
             <FeatureWrapper>
@@ -115,7 +118,7 @@ const ProductDetail = () => {
                 return null;
               })}
             </Gallery>
-          </>
+          </div>
         ))
       ) : (
         <Loader />

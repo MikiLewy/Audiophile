@@ -32,6 +32,9 @@ export const query = `{
         title
         url
       }
+      cartImg{
+        url
+      }
     }
   }`;
 export const useProducts = () => {

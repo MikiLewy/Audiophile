@@ -36,6 +36,18 @@ const CategoryProduct = ({ product: { feature, name, info, id, productImg } }) =
   );
 };
 
-CategoryProduct.propTypes = {};
+CategoryProduct.propTypes = {
+  product: PropTypes.shape({
+    feature: PropTypes.string,
+    name: PropTypes.string,
+    info: PropTypes.string,
+    id: PropTypes.number,
+    productImg: PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  }),
+};
 
 export default CategoryProduct;

@@ -35,17 +35,6 @@ export const Wrapper = styled.nav`
     position: relative;
     z-index: 51;
   }
-  img:nth-of-type(3) {
-    @media ${queries.tablet} {
-      margin-left: auto;
-    }
-  }
-  @media ${queries.laptop} {
-    img:nth-of-type(2) {
-      order: 2;
-      cursor: pointer;
-    }
-  }
 `;
 export const Menu = styled.div`
   position: fixed;

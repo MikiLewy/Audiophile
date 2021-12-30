@@ -10,7 +10,7 @@ const fade = keyframes`
 
 `;
 export const Wrapper = styled.div`
-  margin: 70px auto;
+  margin: 30px auto;
   width: 90%;
   @media ${queries.laptop} {
     width: 100%;
@@ -31,16 +31,7 @@ export const ContentWrapper = styled.div`
     gap: 70px;
   }
 `;
-export const Link = styled.button`
-  border: none;
-  background-color: transparent;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  margin: 30px 0;
-  cursor: pointer;
-  @media ${queries.laptop} {
-    font-size: ${({ theme }) => theme.fontSize.m};
-  }
-`;
+
 export const ImageWrapper = styled.div`
   height: 350px;
   width: 100%;

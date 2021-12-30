@@ -101,6 +101,7 @@ export const ProductWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   p {
     font-size: ${({ theme }) => theme.fontSize.xs};
     color: ${({ theme }) => theme.colors.darkGrey};
@@ -136,6 +137,7 @@ export const ProductInfo = styled.div`
 export const QuantityWrapper = styled.div`
   text-align: right;
   button {
+    margin-left: 25px;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -164,4 +166,5 @@ export const StyledButton = styled(Button)`
   width: 80%;
   margin-top: 5px;
   padding: 0.75rem;
+  text-align: center;
 `;

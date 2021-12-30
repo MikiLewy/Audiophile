@@ -8,6 +8,7 @@ import Home from 'pages/Home/Home';
 import Category from 'pages/Category/Category';
 import ProductDetail from 'pages/ProductDetail/ProductDetail';
 import ProductsProvider from 'providers/ProductsProvider';
+import Checkout from 'pages/Checkout/Checkout';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/:category" element={<Category />} />
               <Route path="/:category/:id" element={<ProductDetail />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </MainTemplate>
         </ProductsProvider>

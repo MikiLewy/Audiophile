@@ -13,6 +13,7 @@ import {
   QuantityWrapper,
 } from './Cart.styles';
 import { ProductsContext } from 'providers/ProductsProvider';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,7 +82,9 @@ const Cart = () => {
                 <p>Total</p>
                 <p>{ctx.totalPrice}$</p>
               </PriceWrapper>
-              <StyledButton>Checkout</StyledButton>
+              <StyledButton as={Link} to="/checkout">
+                Checkout
+              </StyledButton>
             </CheckoutWrapper>
           </>
         ) : null

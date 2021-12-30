@@ -48,7 +48,24 @@ export const Form = styled.form`
     }
   }
 `;
-
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 80%;
+  @media ${queries.biggerPhone} {
+    width: 60%;
+    gap: 5px;
+  }
+  @media ${queries.tablet} {
+    width: 48%;
+    gap: 5px;
+  }
+  @media ${queries.laptop} {
+    width: 49%;
+    gap: 5px;
+  }
+`;
 export const Title = styled.h2`
   font-size: 24px;
   letter-spacing: 1px;
@@ -119,4 +136,9 @@ export const StyledButton = styled(Button)`
   @media ${queries.laptop} {
     width: 100%;
   }
+`;
+export const ErrorMessage = styled.span`
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSize.xxs};
+  color: rgb(180, 3, 28);
 `;

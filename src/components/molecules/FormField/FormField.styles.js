@@ -5,19 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3px;
-  width: 80%;
-  @media ${queries.biggerPhone} {
-    width: 60%;
-    gap: 5px;
-  }
-  @media ${queries.tablet} {
-    width: 48%;
-    gap: 5px;
-  }
-  @media ${queries.laptop} {
-    width: 49%;
-    gap: 5px;
-  }
+  width: 100%;
 `;
 export const Label = styled.label`
   font-weight: bold;

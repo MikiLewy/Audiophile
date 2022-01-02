@@ -86,6 +86,7 @@ export const ImageWrapper = styled.div`
   order: -1;
   overflow-x: hidden;
   border-radius: 15px;
+
   @media ${queries.laptop} {
     width: 50%;
   }

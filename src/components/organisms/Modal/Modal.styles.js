@@ -100,7 +100,7 @@ export const PriceWrapper = styled.div`
 `;
 export const StyledButton = styled(Button)`
   text-align: center;
-  width: 50%;
+  width: 60%;
   margin-bottom: 10px;
   @media ${queries.tablet} {
     margin-top: 20px;

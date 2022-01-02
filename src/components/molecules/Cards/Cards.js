@@ -24,6 +24,7 @@ import {
 } from './Cards.styles';
 import { useWindowSize } from 'hooks/useWindowSize';
 import { changePhoto } from 'helpers/changePhoto';
+import { Link } from 'react-router-dom';
 
 const Cards = () => {
   const width = useWindowSize();
@@ -37,14 +38,18 @@ const Cards = () => {
         <TitleWrapper>
           <h4>ZX9 Speaker</h4>
           <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-          <StyledButton color="black">See product</StyledButton>
+          <StyledButton as={Link} to="/speakers/90353940" color="black">
+            See product
+          </StyledButton>
         </TitleWrapper>
       </Wrapper>
       <SpeakerWrapper>
         <img src={changePhoto(mobileSpeaker, tabletSpeaker, desktopSpeaker, width)} alt="" />
         <ContentWrapper>
           <h4>ZX7 Speaker</h4>
-          <Button color="transparent">See product</Button>
+          <Button as={Link} to="/speakers/90335480" color="transparent">
+            See product
+          </Button>
         </ContentWrapper>
       </SpeakerWrapper>
       <CardsWrapper>
@@ -53,7 +58,9 @@ const Cards = () => {
         </StyledCard>
         <StyledInfo>
           <h4>YX1 earphones</h4>
-          <Button color="transparent">See product</Button>
+          <Button as={Link} to="/earphones/90353977" color="transparent">
+            See product
+          </Button>
         </StyledInfo>
       </CardsWrapper>
     </Container>

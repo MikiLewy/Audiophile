@@ -9,6 +9,7 @@ import Category from 'pages/Category/Category';
 import ProductDetail from 'pages/ProductDetail/ProductDetail';
 import ProductsProvider from 'providers/ProductsProvider';
 import Checkout from 'pages/Checkout/Checkout';
+import ScrollTop from 'helpers/ScrollTop';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
               <Route path="/:category/:id" element={<ProductDetail />} />
               <Route path="/checkout" element={<Checkout />} />
             </Routes>
+            <ScrollTop />
           </MainTemplate>
         </ProductsProvider>
       </ThemeProvider>

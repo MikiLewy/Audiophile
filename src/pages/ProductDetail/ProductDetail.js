@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useWindowSize } from 'hooks/useWindowSize';
 import { changePhoto } from 'helpers/changePhoto';
 import { Button } from 'components/atoms/Button/Button';
@@ -22,10 +22,12 @@ import {
 import Loader from 'components/atoms/Loader/Loader';
 import { ProductsContext } from 'providers/ProductsProvider';
 import ReturnLink from 'components/atoms/ReturnLink/ReturnLink';
+import RecommendedProducts from 'components/organisms/RecomendedProducts/RecommendedProducts';
 
 const ProductDetail = () => {
   const ctx = useContext(ProductsContext);
   const width = useWindowSize();
+  const [message, setMessage] = useState(false);
 
   const handleAddItem = () => {
     if (ctx.cartsProducts.filter((product) => product[0].id === ctx.currentProduct[0].id).length > 0) return;
@@ -34,6 +36,10 @@ const ProductDetail = () => {
     ctx.setCounter(1);
     ctx.setCartsProducts([...ctx.cartsProducts, ctx.currentProduct]);
     ctx.setIsAdded(true);
+    setMessage(true);
+    setTimeout(() => {
+      setMessage(false);
+    }, 3000);
   };
   return (
     <>
@@ -71,7 +77,7 @@ const ProductDetail = () => {
                     </ProductCount>
                     <Button onClick={handleAddItem}>Add to cart</Button>
                   </ButtonsWrapper>
-                  {ctx.isAdded ? <SuccessMessage>Added item to the cart</SuccessMessage> : null}
+                  {message ? <SuccessMessage>Added item to the cart</SuccessMessage> : null}
                 </InfoWrapper>
               </ContentWrapper>
               <FeatureWrapper>
@@ -122,6 +128,7 @@ const ProductDetail = () => {
         ) : (
           <Loader />
         )}
+        <RecommendedProducts />
       </Wrapper>
     </>
   );

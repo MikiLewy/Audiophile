@@ -9,7 +9,9 @@ export const Wrapper = styled.header`
   background-color: #121212;
   position: relative;
   z-index: 1;
-
+  @media ${queries.biggerPhone} {
+    height: 95vh;
+  }
   @media ${queries.tablet} {
     height: 80vh;
   }

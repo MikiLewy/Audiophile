@@ -11,6 +11,14 @@ const handleColorType = (color, theme) => {
       return theme.colors.darkOrange;
   }
 };
+const handleTransition = (color) => {
+  switch (color) {
+    case 'transparent':
+      return 'black';
+    default:
+      return null;
+  }
+};
 
 export const Button = styled.button`
   padding: 0.75rem 1.5rem;
@@ -23,6 +31,11 @@ export const Button = styled.button`
   letter-spacing: 1px;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    background-color: ${({ color }) => handleTransition(color)};
+    color: ${({ color }) => (color === 'transparent' ? 'white' : null)};
+  }
   @media ${queries.tablet} {
     padding: 1rem 2rem;
     font-size: ${({ theme }) => theme.fontSize.xs};

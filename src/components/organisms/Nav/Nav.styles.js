@@ -65,7 +65,7 @@ export const StyledLink = styled(NavLink).attrs(({ isActive }) => (isActive ? 'a
   text-decoration: none;
   color: ${({ theme }) => theme.colors.grey};
   @media ${queries.tablet} {
-    font-size: ${({ theme }) => theme.fontSize.l};
+    font-size: ${({ theme }) => theme.fontSize.m};
   }
   @media ${queries.laptop} {
     font-size: ${({ theme }) => theme.fontSize.m};
